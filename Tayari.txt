@@ -1,0 +1,361 @@
+Double pointer and explain in detail
+Static, Volatile Keyword
+function return 0 and exit 0 from main
+non static fun can access static data members
+Structure Padding or Packaging 
+Diamond Problem (Virtual Inheritance)
+linked list structure
+
+Major Pillars of OOPS
+1. Encapsulation
+2. Abstraction
+3. Inheritance
+4. Modularity
+
+Minor Pillars of OOPS
+1. Concurrency
+2. Persistance
+3. Polymorphism
+
+Abstraction      (Hiding the implementation)
+Encapsulation    (Class + Direct Data Access)
+Polymorphism     () 
+Const functions  
+static functions ()
+Type casting     ()
+   Dynamic_cast  ()
+Smart Pointers   (operator->(void), operator->*(void) need to be overloaded, Data Pointer is private)
+
+
+Singleton Class best perspective is without static
+   make constructor and copy constructor private
+   take a static mutex in class
+   public:
+   static SP* getInstance()
+   {
+       if(obj == nullptr)
+	   {
+	        mutex.lock();
+		    if(obj == nullptr)
+		    {
+	           obj = new SP;
+		    }
+			mutex.unlock)();
+	   }
+	   return obj;
+   }
+
+----------------
+
+Car Parking Scenario 
+1.Small 
+2.Medium
+3.Large
+
+for General
+    Handicapped
+	VIP
+	
+----------------
+You Have 20 Red Balls and Blcak Red Balls in a box
+pick random so that you will get either atleast 2 reds or two black
+- Pick 3 balls at random
+
+----------------
+
+You have two sand clocks viz
+11 mins - A
+13 mins - B
+Calclulate 15 mins with it
+
+start both at a time
+once A over keep it flipped
+till B will get over
+now you will have 2 mins sand in clock of A
+again flip A sand
+-----------------
+
+Design pattern
+==============
+Factory class 
+- Coffee class
+- with extending Latte Cappucino Espresso
+Factory Design Pattern Advantages
+	1. Factory design pattern provides approach to code for interface rather than implementation.
+	2. Factory pattern removes the instantiation of actual implementation classes from client code.
+	   Factory pattern makes our code more robust, less coupled and easy to extend. For example,
+	   we can easily change PC class implementation because client program is unaware of this.
+	3. Factory pattern provides abstraction between implementation and client classes through inheritance.
+
+
+Abstract Factory
+- Add Tea to it
+
+Visitor Design Pattern
+- Computer keyboard mouse (concrete classes)
+- accept and visit method
+- Implementation of algorithm or business logic and class are kept separate
+to achieve open to extension close for modification
+
+Singleton Design Pattern
+- Socket / Database Config
+- static variable thread safe
+- Meyers Singleton
+
+Adaptor Design Pattern
+- Duck and Penguin
+
+Facade
+- TV
+- One interface to start all 
+- following small systems - Amplifier, LED system, Remote circuit, Pen Drive access
+-----------------
+
+2. Write a program to find minimum elements in array which has sum equals to given value.
+
+Input :
+1.Array of integers
+2.Required sum
+
+Output :
+1. Elements from array which makes sum equals to given value
+
+Example:
+
+Input Array : [10, 0, -1, 20, 25, 30]
+ Required Sum: 45
+ Output: [20, 25]
+
+Required Sum: 29
+ Output: [-1, 30]
+
+------------------------------------------------------------
+3. Write a program to display value of each tree node starting from lowest node (H) till root node of the tree such that:
+
+a.Each node value is displayed on a separate line.
+b.Values of nodes are displayed from right to left e.g. in case of first level: E will be printed first before B or in case of second level, print order will be: G, F, D and C.
+c.Values of same level nodes are displayed first e.g. all nodes of last level will be printed before second-last level.
+d.Program should define class similar to as below given.
+e.Main class should contain logic to output the values.
+f.Each node should be visited only once.
+			A
+		  /   \
+		 B	   E
+	   /  \   / \
+	  C	   D F	 G
+	              \
+				   H
+				   
+Print 
+H G F D C E B A
+
+JC
+==
+1.
+  char* str1 = "Hello";
+  char str2[4] = {0};
+  strcpy(str2,str1);   //
+  printf("%s",str2);
+  strcpy_s(str2,4,str1);
+  printf("%s",str2);   //
+
+2. 
+  ioctl()
+  systemd   daemon thread of system
+
+3.
+  git stash
+  git shortlog
+  git 
+  ldd command
+  
+4.
+  gcc -l  -L  
+  
+GSLab
+=====
+You have 2 sorted increasing order lists
+merge both the lists
+i/p 1->3->4
+    2->7->8
+O/p
+    1->2->3->4->7->8
+
+Note : Use  temp variable 
+
+Pratiti : 
+========
+1. Assignment Operator write code for char* Name in class
+   
+2. Everyone Handshakes with each other in a room, no of Handshakes 66 in a room how much people were there?
+n*(n+1)/2
+
+
+Linked List
+===========
+1. Find if list is palindrome
+   2 Ways:
+        1. get a slow(+1) and a fast (+2) pointer go till fast finds null
+		2. reverse the second half 
+		3. again start checking the dataone by one
+  
+John Deere :
+==========
+1. Write Code to create object on heap only
+	-> We have 2 Answers :)
+       write constructor and copy constructor as private
+       and Write a static method called 
+       static classname* Create()
+	   
+	   1 drawback if we have too many constructors we need to write overloaded Create functions
+	   
+	-> just make destructor private and
+	   make a static function to delete the object 
+	   static void ClearObj(A* obj)
+	   {delete obj;}
+   
+2. Write code to create object on stack only  make new operator private.
+   Overload new operator privately.
+   - new operator is a static operator method
+   - new operator always have size_t as a parameter
+   - new operator always have return type void*
+   - void* operaor new(size_t size)
+    {
+       return ::new A();
+	}   
+   
+3. Performance improve in vector.push_back  in loop
+   vector.reserve() before for loop
+   
+4. std::move(str)
+   move function is implemented as : 
+      static_cast<typename std::remove_reference<T>::type&&>(t)
+   It just removes the lvalue reference and it becomes rvalue reference also removes the constness of refernce so that we can change
+   
+5. count 1's in sorted array
+
+Persistent
+----------  
+1. Linked List as follows
+   ... A -> B -> C ...   then Delete B
+   
+   copy data from C to B, then delete "C" instead of B
+
+2. Stack have following functions 
+   1. TOS() top of stack
+   2. PUSH()   
+   3. POP()
+   Write your own class which extends stack and find Largest elements
+   each time push and pop is executed
+   
+   Algo -> 1. take another stack called B.
+           2. when push executes on A check B's TOS if its larger than new value inserted into A then Push on B as well.
+		   3. each time when getLargest element called return TOS of stack B.
+
+3. Singleton class in  multithreaded env
+
+4. There are 1-50 numbers in linked list but somewhere 1 is duplicate remove it
+   -> use Binary array
+   
+5. There are random numbers in the array all are duplicate but the one is unique
+   Find that unique number
+   eg. 9 15 5 15 8 9 5
+   here all numbers are duplicate but the 8 is unique
+   -> Use Xor of all the numbers and in the last you will get the unique number
+   
+      1001  9
+    ^ 1111  15
+	======
+    =>0110
+    ^ 0101  5f
+    ======
+    =>0011
+	^ 1111  15
+	======
+	=>1100
+	^ 1000  8
+	======
+	=>0100
+	^ 1001  9
+	======
+	=>1101
+	^ 0101  5
+	======
+	=>1000  => Here is your answer
+
+   
+Calsoft
+=======
+
+how compiler adds debugging information in Debug mode
+what is the command used for tell the compiler not to add debugging information
+  g++ -g -o main.cpp 
+            
+
+G4G
+===
+1. Introduction to Linked List
+2. Linked List vs Array
+3. Linked List Insertion
+4. Linked List Deletion (Deleting a given key)
+5. Linked List Deletion (Deleting a key at given position)
+6. Write a function to delete a Linked List
+7. Find Length of a Linked List (Iterative and Recursive)
+8. Search an element in a Linked List (Iterative and Recursive)
+9. Write a function to get Nth node in a Linked List
+10. Nth node from the end of a Linked List
+11. Print the middle of a given linked list
+12. Write a function that counts the number of times a given int occurs in a Linked List
+13. Detect loop in a linked list
+14. Find length of loop in linked list
+15. Function to check if a singly linked list is palindrome
+16. Remove duplicates from a sorted linked list
+17. Remove duplicates from an unsorted linked list
+18. Swap nodes in a linked list without swapping data
+19. Pairwise swap elements of a given linked list
+20. Move last element to front of a given Linked List
+21. Intersection of two Sorted Linked Lists
+22. Intersection point of two Linked Lists.
+23. QuickSort on Singly Linked List
+24. Segregate even and odd nodes in a Linked List
+25. Reverse a linked list			
+	void reverse()
+	{
+		Node* next, *cur, *prev = NULL;
+		cur = head;
+		while(cur != NULL)
+		{
+			next = cur->Next;
+			cur->Next = prev;
+			prev= cur;
+			cur = next;
+		}
+		head = prev;
+	}			
+			
+			
+			
+			
+			
+			
+			
+/*********  read the date from a string ********/
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i = 0;
+    char str[100];
+    string word;
+    int dd,mm,yy;
+    stringstream ss;
+    
+    scanf("%[^\n]s",str);
+    ss<<str;
+    while(ss>>word)
+    {
+        if(sscanf(word.c_str(),"%d/%d/%d",&dd,&mm,&yy)==3) 
+            cout<< dd<<"/"<<mm<<"/"<<yy<< endl;
+    }
+    return 0;
+}
