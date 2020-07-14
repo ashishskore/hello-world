@@ -7,4 +7,4 @@ set shiftwidth=4
 set expandtab
 set ts=4
 set autoindent
-set relativenumber
+set number nurelativenumber
